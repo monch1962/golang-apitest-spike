@@ -5,4 +5,5 @@ go 1.15
 require (
 	github.com/steinfletcher/apitest v1.4.11
 	github.com/steinfletcher/apitest-jsonpath v1.6.0
+	github.com/stretchr/testify v1.6.1
 )
