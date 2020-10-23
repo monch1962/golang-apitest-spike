@@ -11,12 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func getHost() string {
-	if os.Getenv(`HOST`) != "" {
-		return os.Getenv(`HOST`)
-	}
-	return "http://localhost:8000"
-}
+var host = os.Getenv(`HOST`)
 
 func TestHandler(t *testing.T) {
 	var getUserMock = apitest.NewMock().
@@ -42,7 +37,6 @@ func TestHandler(t *testing.T) {
 }
 
 func TestMocks_Standalone(t *testing.T) {
-	host := getHost()
 	cli := http.Client{Timeout: 5}
 	if os.Getenv(`MOCKS`) != "" {
 		defer apitest.NewMock().
